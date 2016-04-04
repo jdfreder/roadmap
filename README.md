@@ -29,7 +29,7 @@ our documentation spans all subprojects, each of which have their own release cy
 versioning, the documentation roadmap doesn't have concrete version numbers associated with
 each milestone.
 
-### Next 
+### Next
 
 * Hire full time and part time staff who will focus on improving our documentation.
 * Research existing tools for writing documentation (Readthedocs, Sphinx, Notebooks, etc.)
@@ -125,20 +125,36 @@ each milestone.
 * Improved and consistent visual style of built-in widgets.
 * Better abstractions for styling widgets using CSS and doing layout with flexbox.
 * Ability to run ipywidgets outside of the notebook.
-* Initial refactoring to start to use npm for packaging the JavaScript code.
+* Use npm for packaging the JavaScript code as `jupyter-js-widgets`.
+* Use the new notebook nbextension mechanism, introduced in Jupyter notebook 4.2
+  for the widgetsnbextension package, which will contain all of the notebook
+  specific widget Javascript.
+* Include two mechanisms for exporting widgets to static formats, rasterized
+  screencaptures of the widgets and an embed widget manager which is capable of
+  rendering widgets outside of the notebook.
+* Add examples for using the widgets outside of the notebook.
+* Add narrative docs describing the widgets basic usage and low level widget
+  spec information.
 
 ### Future
 
-* Further decouple the JavaScript and Python kernel backend, likely moving the JavaScript
-  out of the Python repo into the Jupyter org.
-* Explore how we can start to treat widgets as regular output, and not have to have
-  a separate widget area in the DOM.
-* Explore how the existing codebase will integrate with phosphor. In particular, explore
-  using phosphor properties to abstract away the details of backbone.js models and replace
-  the backbone models with phosphorjs widget-based views.
+* Treat widgets as regular output, and not have to have a separate widget area
+  in the DOM.
 * Transition to ES6/TypeScript.
-* Allow widgets to be used at the top-level of the Jupyter Workbench UI to create
-  dashboards.
+* Remove dependency on jQuery, jQuery UI, and bootstrap.
+* Integrate existing widgets with JupyterLab.
+* Explore mechanisms to allow Phosphor views to be used directly with
+  jupyter-js-widget models.
+* Integrate framework/foundation classes of the Declaritive Widget incubator
+  directly into jupyter-js-widgets and ipywidgets.
+* Evaluate and possibly transition the codebase to use modern Javascript
+  standards.  Linting tools (i.e. eslint) should be used to assist developers
+  into complying to said standard.
+* Shrink the jupyter-js-widgets codebase using well adopted Javascript libraries
+  installed via npm.
+* Give the widgets a facelift.  Maybe material-ui?  Home spun design?
+* Add more synchronized events.  In the process, investigate slicker ways to do
+  cross context event synchronization.
 
 ## traitlets
 
